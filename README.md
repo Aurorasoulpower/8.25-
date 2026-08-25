@@ -47,7 +47,7 @@ $$R = R_y\left(\frac{\pi}{2}\right) \cdot R_x\left(\frac{\pi}{2}\right)$$
 $$R = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & -1 \\ -1 & 0 & 0 \end{bmatrix}$$
 
 **作图**：
-![[Pasted image 20260825192342.png]]
+![[1.3.png]]
 
 ## 1.4
 
@@ -139,7 +139,7 @@ $$P_{o_1}^0 = \begin{bmatrix} 3 \\ 1 \\ 0 \end{bmatrix}$$
 所以原点 $o_1$ 相对于初始坐标系的坐标为 **$(3, 1, 0)$**。
 
 **作图**：
-![[Pasted image 20260825193124.png]]
+![[1.5.png]]
 
 
 
@@ -284,9 +284,9 @@ $$T_{2\text{new}}^3 = (T_3^{2\text{new}})^{-1} = \begin{bmatrix} 1 & 0 & 0 & 0.3
 
 ## 实车测量
 
-![[8e8b5be71d3471f0bedbb92858f3af72.png]]
+![[测量.png]]
 
-![[c51fd91bede1cdbc560a1a178ecc7e20.png]]
+![[数据.png]]
 ### 一、 符号与物理含义映射
 
 在机器人学与空间姿态描述中， Roll-Pitch-Yaw (RPY) 角（即 $Z-Y-X$ 欧拉角）的标准符号定义与旋转轴对应如下：
