@@ -1,3 +1,4 @@
+
 # 8.25作业
 
 ## 1.1
@@ -9,6 +10,7 @@
 
 - **关于固定坐标系（世界坐标系/基坐标系）旋转**：在已有矩阵的**左侧**乘以对应的旋转矩阵。
 - **关于当前坐标系（动坐标系）旋转**：在已有矩阵的**右侧**乘以对应的旋转矩阵。
+
 #### **最终答案**  
 
 $$R = R_y(\psi) R_x(\phi) R_z(\theta)$$
@@ -19,10 +21,14 @@ $$R = R_y(\psi) R_x(\phi) R_z(\theta)$$
 2. 关于世界坐标系的 $z$ 轴旋转 $\theta$。 **左乘**
 3. 关于当前坐标系的 $x$ 轴旋转 $\psi$。**右乘**
 4. 关于世界坐标系的 $z$ 轴旋转 $\alpha$。**左乘**
+
 #### **最终答案**
+
 $$R = R_z(\alpha) R_z(\theta) R_x(\phi) R_x(\psi)$$
 
+
 $$R = R_z(\alpha + \theta) R_x(\phi + \psi)$$
+
 
 ## 1.3
 
@@ -36,15 +42,20 @@ $$R = R_z(\alpha + \theta) R_x(\phi + \psi)$$
 因此最终旋转矩阵为：
 $$R = R_y\left(\frac{\pi}{2}\right) \cdot R_x\left(\frac{\pi}{2}\right)$$
 
+
 - **绕 $x$ 轴旋转 $\frac{\pi}{2}$** ($\cos\frac{\pi}{2}=0, \sin\frac{\pi}{2}=1$)：
 - $$R_x\left(\frac{\pi}{2}\right) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{bmatrix}$$
+
 - **绕 $y$ 轴旋转 $\frac{\pi}{2}$** ($\cos\frac{\pi}{2}=0, \sin\frac{\pi}{2}=1$)：
 - $$R_y\left(\frac{\pi}{2}\right) = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ -1 & 0 & 0 \end{bmatrix}$$
+
 - **矩阵相乘**：
     $$R = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ -1 & 0 & 0 \end{bmatrix} \begin{bmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & -1 \\ -1 & 0 & 0 \end{bmatrix}$$
+
 **计算结果**：
 
 $$R = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & -1 \\ -1 & 0 & 0 \end{bmatrix}$$
+
 
 **作图**：
 ![[1.3.png]]
@@ -55,6 +66,7 @@ $$R = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & -1 \\ -1 & 0 & 0 \end{bmatrix}$$
 
 假设给定三个坐标系 $o_1x_1y_1z_1$、$o_2x_2y_2z_2$ 和 $o_3x_3y_3z_3$，同时假设：
 $$R_2^1 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ 0 & \frac{\sqrt{3}}{2} & \frac{1}{2} \end{bmatrix}, \quad R_3^1 = \begin{bmatrix} 0 & 0 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix}$$
+
 
 计算矩阵 $R_3^2$。
 
@@ -79,18 +91,22 @@ $$R_2^1 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ 
     
     所以最终公式简化为：
     $$R_3^2 = (R_2^1)^T \cdot R_3^1$$
+
 #### **计算过程**：
 
 **1. 求 $(R_2^1)^T$ （将 $R_2^1$ 转置，即行列互换）：**
 
 $$R_2^1 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ 0 & \frac{\sqrt{3}}{2} & \frac{1}{2} \end{bmatrix} \implies (R_2^1)^T = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & \frac{\sqrt{3}}{2} \\ 0 & -\frac{\sqrt{3}}{2} & \frac{1}{2} \end{bmatrix}$$
 
+
 **2. 进行矩阵乘法 $(R_2^1)^T \cdot R_3^1$：**
 
 $$R_3^2 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & \frac{\sqrt{3}}{2} \\ 0 & -\frac{\sqrt{3}}{2} & \frac{1}{2} \end{bmatrix} \begin{bmatrix} 0 & 0 & -1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{bmatrix}$$
+
 #### **最终答案**
 
 $$R_3^2 = \begin{bmatrix} 0 & 0 & -1 \\ \frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\ \frac{1}{2} & -\frac{\sqrt{3}}{2} & 0 \end{bmatrix}$$
+
 
 
 ## 1.5 
@@ -136,6 +152,7 @@ $$R_3^2 = \begin{bmatrix} 0 & 0 & -1 \\ \frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\ 
 
 $$P_{o_1}^0 = \begin{bmatrix} 3 \\ 1 \\ 0 \end{bmatrix}$$
 
+
 所以原点 $o_1$ 相对于初始坐标系的坐标为 **$(3, 1, 0)$**。
 
 **作图**：
@@ -162,6 +179,7 @@ $$P_{o_1}^0 = \begin{bmatrix} 3 \\ 1 \\ 0 \end{bmatrix}$$
 
 $$T_1^0 = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
 
+
 ### • $T_2^0$（立方体坐标系相对于基础坐标系）：
 
 从 $o_1$ 到 $o_2$：
@@ -177,11 +195,13 @@ $$T_1^0 = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 &
 
 $$T_2^1 = \begin{bmatrix} 1 & 0 & 0 & 0.5 \\ 0 & 1 & 0 & 0.5 \\ 0 & 0 & 1 & 0.1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
 
+
 计算 $T_2^0 = T_1^0 \cdot T_2^1$：
 
   
 
 $$T_2^0 = \begin{bmatrix} 1 & 0 & 0 & 0.5 \\ 0 & 1 & 0 & 1.5 \\ 0 & 0 & 1 & 1.1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 
 ### • $T_3^0$（相机坐标系相对于基础坐标系）：
 
@@ -203,9 +223,11 @@ $$T_2^0 = \begin{bmatrix} 1 & 0 & 0 & 0.5 \\ 0 & 1 & 0 & 1.5 \\ 0 & 0 & 1 & 1.1 
 旋转矩阵：
 
 $$R_3^0 = \begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & -1 \end{bmatrix}$$
+
 位置向量：${}^0P_3 = [0.5, 1.5, 3]^T$。
 
 $$T_3^0 = \begin{bmatrix} 0 & 1 & 0 & 0.5 \\ 1 & 0 & 0 & 1.5 \\ 0 & 0 & -1 & 3 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 
 ### • $T_3^2$（相机坐标系相对于立方体坐标系）：
 
@@ -214,9 +236,12 @@ $$T_3^0 = \begin{bmatrix} 0 & 1 & 0 & 0.5 \\ 1 & 0 & 0 & 1.5 \\ 0 & 0 & -1 & 3 \
 先求 $(T_2^0)^{-1}$：
 
 $$(T_2^0)^{-1} = \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & 1 & 0 & -1.5 \\ 0 & 0 & 1 & -1.1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 计算矩阵乘积 $T_3^2 = (T_2^0)^{-1} \cdot T_3^0$：
 
 $$T_3^2 = \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & 1 & 0 & -1.5 \\ 0 & 0 & 1 & -1.1 \\ 0 & 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} 0 & 1 & 0 & 0.5 \\ 1 & 0 & 0 & 1.5 \\ 0 & 0 & -1 & 3 \\ 0 & 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & -1 & 1.9 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+
 ## 2.2 
 
 在相机标定之后，假设相机绕**自身坐标系 $z_3$ 轴**转动了 $90^\circ$。
@@ -229,10 +254,12 @@ $$T_3^2 = \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & 1 & 0 & -1.5 \\ 0 & 0 & 1 & -1
 
 - **原相机旋转矩阵 $R_3^0$**
 - $$R_3^0 = \begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & -1 \end{bmatrix}$$
+
 - **绕自身 $z_3$ 轴旋转 $90^\circ$（应用右乘法则）**：
     
     绕动轴旋转的基础旋转矩阵为：
     $$R_z(90^\circ) = \begin{bmatrix} \cos 90^\circ & -\sin 90^\circ & 0 \\ \sin 90^\circ & \cos 90^\circ & 0 \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+    
 - **计算新的旋转矩阵 $R_{3\text{new}}^0$**：
     $$R_{3\text{new}}^0 = R_3^0 \cdot R_z(90^\circ) = \begin{bmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & -1 \end{bmatrix} \begin{bmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1 \end{bmatrix}$$
     
@@ -240,6 +267,7 @@ $$T_3^2 = \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & 1 & 0 & -1.5 \\ 0 & 0 & 1 & -1
     
 - **得出新的相机齐次变换矩阵 $T_{3\text{new}}^0$**：
 - $$T_{3\text{new}}^0 = \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & -1 & 0 & 1.5 \\ 0 & 0 & -1 & 3 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 ### 计算立方体坐标系到新相机坐标系的齐次变换矩阵 $T_{3\text{new}}^2$
 
 利用关系式 $T_{3\text{new}}^2 = (T_2^0)^{-1} \cdot T_{3\text{new}}^0$：
@@ -251,6 +279,7 @@ $$T_3^2 = \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & 1 & 0 & -1.5 \\ 0 & 0 & 1 & -1
     $$T_{3\text{new}}^2 = \begin{bmatrix} 1 & 0 & 0 & 0.5 \\ 0 & 1 & 0 & -1.5 \\ 0 & 0 & 1 & -1.1 \\ 0 & 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & -1 & 0 & 1.5 \\ 0 & 0 & -1 & 3 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
     $$T_{3\text{new}}^2 = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & -1 & 0 & 0 \\ 0 & 0 & -1 & 1.9 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
     
+
 ## 2.3 
 
 1. **姿态变化**：方块绕自身 $z_2$ 轴转动了 $90^\circ$。
@@ -261,25 +290,33 @@ $$T_3^2 = \begin{bmatrix} 1 & 0 & 0 & -0.5 \\ 0 & 1 & 0 & -1.5 \\ 0 & 0 & 1 & -1
 ### 过程
 
 $$T_{2\text{new}}^1 = \begin{bmatrix} R_z(90^\circ) & {}^1P_{2\text{new}} \\ \mathbf{0}_{1\times 3} & 1 \end{bmatrix} = \begin{bmatrix} 0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0.8 \\ 0 & 0 & 1 & 0.1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+
 ##### 方块新坐标系相对于基础坐标系的变换 $T_{2\text{new}}^0$：
 
 利用齐次变换链式法则：$T_{2\text{new}}^0 = T_1^0 \cdot T_{2\text{new}}^1$
 
 代入 $T_1^0 = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$ 计算：
 $$T_{2\text{new}}^0 = \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} 0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0.8 \\ 0 & 0 & 1 & 0.1 \\ 0 & 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 1.8 \\ 0 & 0 & 1 & 1.1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+
 ##### 相机坐标系相对于方块新坐标系的变换 $T_3^{2\text{new}}$：
 
 初始相机姿态 $T_3^0 = \begin{bmatrix} 0 & 1 & 0 & -0.5 \\ 1 & 0 & 0 & 1.5 \\ 0 & 0 & -1 & 3 \\ 0 & 0 & 0 & 1 \end{bmatrix}$：
 
 
 $$T_3^{2\text{new}} = (T_{2\text{new}}^0)^{-1} \cdot T_3^0$$
+
 $$(T_{2\text{new}}^0)^{-1} = \begin{bmatrix} R^T & -R^T P \\ \mathbf{0} & 1 \end{bmatrix} = \begin{bmatrix} 0 & 1 & 0 & -1.8 \\ -1 & 0 & 0 & 0 \\ 0 & 0 & 1 & -1.1 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
 
+
 $$T_3^{2\text{new}} = \begin{bmatrix} 0 & 1 & 0 & -1.8 \\ -1 & 0 & 0 & 0 \\ 0 & 0 & 1 & -1.1 \\ 0 & 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} 0 & 1 & 0 & -0.5 \\ 1 & 0 & 0 & 1.5 \\ 0 & 0 & -1 & 3 \\ 0 & 0 & 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 & -0.3 \\ 0 & -1 & 0 & 0.5 \\ 0 & 0 & -1 & 1.9 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 
 ##### 方块新坐标系相对于相机坐标系的变换 $T_{2\text{new}}^3$：
 
 $$T_{2\text{new}}^3 = (T_3^{2\text{new}})^{-1} = \begin{bmatrix} 1 & 0 & 0 & 0.3 \\ 0 & -1 & 0 & 0.5 \\ 0 & 0 & -1 & 1.9 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
 
 
 ## 实车测量
@@ -287,6 +324,7 @@ $$T_{2\text{new}}^3 = (T_3^{2\text{new}})^{-1} = \begin{bmatrix} 1 & 0 & 0 & 0.3
 ![[测量.png]]
 
 ![[数据.png]]
+
 ### 一、 符号与物理含义映射
 
 在机器人学与空间姿态描述中， Roll-Pitch-Yaw (RPY) 角（即 $Z-Y-X$ 欧拉角）的标准符号定义与旋转轴对应如下：
@@ -303,16 +341,19 @@ $$T_{2\text{new}}^3 = (T_3^{2\text{new}})^{-1} = \begin{bmatrix} 1 & 0 & 0 & 0.3
 
 $${}^1T_2 = \begin{bmatrix} {}^1R_2 & {}^1P_2 \\ \mathbf{0}_{1\times 3} & 1 \end{bmatrix} = \begin{bmatrix} r_{11} & r_{12} & r_{13} & \Delta X \\ r_{21} & r_{22} & r_{23} & \Delta Y \\ r_{31} & r_{32} & r_{33} & \Delta Z \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
 
+
 #### 1. 平移向量 ${}^1P_2$
 
 由题目直接给出的空间平移量可得：
 
 $${}^1P_2 = \begin{bmatrix} \Delta X \\ \Delta Y \\ \Delta Z \end{bmatrix} = \begin{bmatrix} 322.47 \\ -664.31 \\ 332.60 \end{bmatrix} \quad (\text{单位: mm})$$
+
 #### 2. 旋转矩阵 ${}^1R_2$
 
 按照标准的 **$Z-Y-X$ 旋转顺序**（先绕 $Z$ 轴旋转 Yaw 角 $\Psi$，再绕 $Y$ 轴旋转 Pitch 角 $\Theta$，最后绕 $X$ 轴旋转 Roll 角 $\Phi$），旋转矩阵相乘顺序为：
 
 $${}^1R_2 = R_z(\Psi) \cdot R_y(\Theta) \cdot R_x(\Phi)$$
+
 
 其中各基本旋转矩阵为：
 
@@ -325,14 +366,17 @@ $${}^1R_2 = R_z(\Psi) \cdot R_y(\Theta) \cdot R_x(\Phi)$$
 - **绕 $X$ 轴旋转 $\Phi = 104.84^\circ$**：
     $$R_x(104.84^\circ) = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \cos 104.84^\circ & -\sin 104.84^\circ \\ 0 & \sin 104.84^\circ & \cos 104.84^\circ \end{bmatrix} = \begin{bmatrix} 1 & 0 & 0 \\ 0 & -0.2561 & -0.9666 \\ 0 & 0.9666 & -0.2561 \end{bmatrix}$$
     
+
 ### 三、 数值计算过程
 
 将三个旋转矩阵依次相乘：
 $${}^1R_2 = R_z(75.91^\circ) \cdot R_y(18.00^\circ) \cdot R_x(104.84^\circ)$$
 
+
 计算得到旋转矩阵 ${}^1R_2$：
 
 $${}^1R_2 = \begin{bmatrix} 0.2315 & 0.3211 & 0.9183 \\ 0.9224 & 0.2274 & -0.3121 \\ -0.3090 & 0.9193 & -0.2436 \end{bmatrix}$$
+
 
 ### 四、 最终答案
 
